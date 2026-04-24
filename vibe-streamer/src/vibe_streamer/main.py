@@ -7,9 +7,10 @@ from PySide6.QtCore import Qt
 from .ui import MainWindow
 from . import db
 
+
 def setup_dark_theme(app: QApplication):
     app.setStyle("Fusion")
-    
+
     dark_palette = QPalette()
     dark_palette.setColor(QPalette.Window, QColor(53, 53, 53))
     dark_palette.setColor(QPalette.WindowText, Qt.white)
@@ -24,21 +25,25 @@ def setup_dark_theme(app: QApplication):
     dark_palette.setColor(QPalette.Link, QColor(42, 130, 218))
     dark_palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
     dark_palette.setColor(QPalette.HighlightedText, Qt.black)
-    
+
     app.setPalette(dark_palette)
-    
-    app.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }")
+
+    app.setStyleSheet(
+        "QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }"
+    )
+
 
 def main():
-    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     db.init_db()
     app = QApplication(sys.argv)
     setup_dark_theme(app)
-    
+
     window = MainWindow()
     window.show()
-    
+
     sys.exit(app.exec())
+
 
 if __name__ == "__main__":
     main()

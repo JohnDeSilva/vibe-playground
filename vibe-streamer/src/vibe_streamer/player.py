@@ -2,6 +2,7 @@ import subprocess
 from pathlib import Path
 import sys
 
+
 def play_video(file_path: str):
     """
     Launches VLC to play the given video file.
@@ -10,7 +11,7 @@ def play_video(file_path: str):
     path = Path(file_path)
     if not path.exists():
         raise FileNotFoundError(f"Video file not found: {file_path}")
-        
+
     try:
         # We just launch VLC in the background and detach
         if sys.platform == "win32":

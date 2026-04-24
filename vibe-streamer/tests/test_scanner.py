@@ -1,4 +1,3 @@
-from pathlib import Path
 from vibe_streamer.scanner import scan_directories
 
 
