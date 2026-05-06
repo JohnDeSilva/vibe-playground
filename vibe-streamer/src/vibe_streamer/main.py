@@ -34,7 +34,24 @@ def setup_dark_theme(app: QApplication):
 
 
 def main():
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    log_formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.INFO)
+
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(log_formatter)
+    root_logger.addHandler(console_handler)
+
+    # File handler in the current working directory
+    try:
+        file_handler = logging.FileHandler("vibe-streamer.log")
+        file_handler.setFormatter(log_formatter)
+        root_logger.addHandler(file_handler)
+        logging.info("Logging to vibe-streamer.log in current directory")
+    except Exception as e:
+        logging.error(f"Could not create log file: {e}")
+
     db.init_db()
     app = QApplication(sys.argv)
     setup_dark_theme(app)

@@ -6,12 +6,15 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "pyside6>=6.11.0",
+    "requests>=2.31.0",
 ]
 
 [dependency-groups]
 dev = [
     "pyinstaller>=6.20.0",
     "pytest>=9.0.3",
+    "pytest-cov>=4.1.0",
+    "pytest-qt>=4.4.0",
     "ruff>=0.15.12",
 ]
 [project.scripts]

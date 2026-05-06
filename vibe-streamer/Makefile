@@ -8,7 +8,7 @@ lint:
 	uv run ruff check --fix .
 
 test:
-	uv run pytest tests/
+	PYTHONPATH=src uv run pytest --cov=vibe_streamer --cov-report=term-missing tests/
 
 build-mac:
 	uv run pyinstaller --name "Vibe Streamer" --windowed --noconfirm src/vibe_streamer/main.py
