@@ -11,6 +11,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "commitizen>=4.15.1",
     "pyinstaller>=6.20.0",
     "pytest>=9.0.3",
     "pytest-cov>=4.1.0",
@@ -21,3 +22,11 @@ dev = [
 vibe-streamer = "vibe_streamer.main:main"
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+version_files = [
+    "pyproject.toml:version",
+    "src/vibe_streamer/__init__.py"
+]

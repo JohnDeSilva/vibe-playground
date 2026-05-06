@@ -16,3 +16,6 @@ build-mac:
 clean:
 	rm -rf build/ dist/ *.spec .pytest_cache .ruff_cache .venv
 	find . -type d -name "__pycache__" -exec rm -rf {} +
+
+release:
+	uv run cz bump
